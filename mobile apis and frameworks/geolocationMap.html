@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Geolocation API with Leaflet</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <style>
+        #map {
+            width: 100%;
+            height: 400px;
+        }
+    </style>
+</head>
+<body>
+	<h1>Geolocation API with Leaflet</h1>
+    <p>Click the button to get your location</p>
+    <p>Group Name: New Group 11</p>
+    <p>Group Members:
+        Ankita Sharma
+        Jasmeet Singh Bagga
+        Navdeep Kaur
+    </p>
+    <button onclick="geoLocation()">Click Me !</button>
+    <p id="test"></p>
+    <div id="map"></div>
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script>
+        var x = document.getElementById('test');
+  
+        function geoLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            } else {
+                x.innerHTML = "Geolocation is not supported by the browser";
+            }
+        }
+
+        function showPosition(position) {
+            x.innerHTML = "Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude;
+
+            var map = L.map('map').setView([position.coords.latitude, position.coords.longitude], 13);
+
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+
+            L.marker([position.coords.latitude, position.coords.longitude]).addTo(map)
+                .bindPopup('Your Location').openPopup();
+        }
+    </script>
+</body>
+</html>

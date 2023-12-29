@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Meta tags for character set and responsive design -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Title of the page -->
+    <title>Product List</title>
+    <!-- External CSS link and internal styles for the page -->
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Internal CSS styles for the table and toolbar */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:nth-child(odd) {
+            background-color: #ffffff;
+        }
+
+        .toolbar {
+            background-color: #f1f1f1;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        .toolbar a {
+            margin-right: 20px;
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Toolbar section for navigation links -->
+    <div class="toolbar">
+        <!-- Navigation links with href attributes -->
+        <a href="/">Home</a>
+        <a href="/products">Products</a>
+        <a href="/new-products">New Products</a>
+    </div>
+
+    <!-- Main content container with product list table -->
+    <div class="container">
+        <!-- Heading for the product list -->
+        <h1>Product List</h1>
+        <!-- Table to display product ID and name -->
+        <table>
+            <!-- Table header with column names -->
+            <thead>
+                <tr>
+                    <th>Product ID</th>
+                    <th>Product Name</th>
+                </tr>
+            </thead>
+            <!-- Table body with product data -->
+            <tbody>
+                <!-- Loop through products and create table rows -->
+                <% products.forEach(product => { %>
+                    <tr>
+                        <!-- Product ID column -->
+                        <td><%= product.id %></td>
+                        <!-- Product Name column with a clickable link to the product details page -->
+                        <td><a href="/products/<%= product.id %>"><%= product.name %></a></td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>

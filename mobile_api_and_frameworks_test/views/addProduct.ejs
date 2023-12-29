@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Product</title>
+    <!-- CSS styles for the page -->
+    <style>
+        /* Styles for the body */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f1f1f1;
+        }
+
+        /* Styles for the container */
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        /* Styles for headings */
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        /* Styles for form elements */
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Styles for form labels */
+        label {
+            margin-bottom: 10px;
+        }
+
+        /* Styles for text input fields */
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        /* Styles for buttons */
+        button {
+            padding: 10px 20px;
+            background-color: #4caf50;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        /* Hover effect for buttons */
+        button:hover {
+            background-color: #45a049;
+        }
+
+        /* Styles for the toolbar */
+        .toolbar {
+            background-color: #f1f1f1;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        /* Styles for toolbar links */
+        .toolbar a {
+            margin-right: 20px;
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Toolbar section -->
+    <div class="toolbar">
+        <a href="/">Home</a>
+        <a href="/products">Products</a>
+        <a href="/new-products">New Products</a>
+    </div>
+
+    <!-- Main content section -->
+    <div class="container">
+        <!-- Heading for the form -->
+        <h1>Create Product</h1>
+        <!-- Product creation form -->
+        <form action="/products/create" method="post">
+            <!-- Label for product name input -->
+            <label for="productName">Product Name:</label>
+            <!-- Text input field for product name with required attribute -->
+            <input type="text" id="productName" name="productName" required>
+            <!-- Submit button for form submission -->
+            <button type="submit">Create Product</button>
+        </form>
+    </div>
+</body>
+
+</html>
